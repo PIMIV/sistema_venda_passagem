@@ -1,6 +1,20 @@
 #include <stdio.h>
+#include <locale.h>
+
+
+
+
 int main()
 {
+
+setlocale(LC_ALL, "Portuguese");
+
+	
+	printf("=========================================================================\n");
+	printf("=		SISTEMA DE VENDA DE PASSAGEM RODOVIARIA			=\n");
+	printf("=========================================================================\n");
+	system("color CF");
+	
      int a[12][4], l, c, menu, soma, qtd, lugar, t, qa;
      qtd = 0;
      soma = 0;
