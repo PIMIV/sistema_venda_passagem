@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <locale.h>
-
+#include <time.h> /*pra mecher com hora e data*/
 
 
 
@@ -15,13 +15,13 @@ setlocale(LC_ALL, "Portuguese");
 	printf("=========================================================================\n");
 	system("color CF");
 	
-     int a[12][4], l, c, menu, soma, qtd, lugar, t, qa;
+     int a[9][4], l, c, menu, soma, qtd, lugar, t, qa; /*mudei de 12 p/ 9 = 36*/
      qtd = 0;
      soma = 0;
      qa = 0;
      menu = 0;
      t = 0;
-     for (l=0;l<12;l++)
+     for (l=0;l<9;l++)
      {
         for (c=0;c<4;c++)
         {
@@ -45,7 +45,7 @@ setlocale(LC_ALL, "Portuguese");
      switch (menu)
      {
             case 1:
-                 for (l=0;l<12;l++)
+                 for (l=0;l<9;l++)
                  {
                      for (c=0;c<4;c++)
                      {
@@ -63,7 +63,7 @@ setlocale(LC_ALL, "Portuguese");
                               }
             break;
             case 2:
-                 for (l=0;l<12;l++)
+                 for (l=0;l<9;l++)
                  {
                      for (c=0;c<4;c++)
                      {
@@ -85,7 +85,7 @@ setlocale(LC_ALL, "Portuguese");
                               }
             break;
             case 3:
-                 for (l=0;l<12;l++)
+                 for (l=0;l<9;l++)
                  {
                      for (c=0;c<4;c++)
                      {
@@ -110,11 +110,11 @@ setlocale(LC_ALL, "Portuguese");
                  printf("\nVALOR DA PASSAGEM R$15,00");
                  printf("\nDIGITE O NUMERO DA POLTRONA: ");
                  scanf("%d", &lugar);
-                 if (lugar>=1 && lugar<=48)
+                 if (lugar>=1 && lugar<=36)
                  {
                  soma++;
                  qa++;
-                 for (l=0;l<12;l++)
+                 for (l=0;l<9;l++)
                  {
                      for(c=0;c<4;c++)
                      {
@@ -127,13 +127,13 @@ setlocale(LC_ALL, "Portuguese");
                               }
                  else
                  {
-                     printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 48!!!\n");
+                     printf("\nAS POLTRONAS SÃƒO SOMENTE DE 1 A 48!!!\n");
                      goto volta;
                      }
             break;
             case 5:
                  printf("\nVALOR DA PASSAGEM R$15,00");
-                 for (l=0;l<12;l++)
+                 for (l=0;l<9;l++)
                  {
                      for (c=0;c<4;c++)
                      {
