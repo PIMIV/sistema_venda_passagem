@@ -2,6 +2,9 @@
 #include <locale.h>
 #include <time.h> 
 
+
+
+
 int main()
 {
 
@@ -12,15 +15,17 @@ setlocale(LC_ALL, "Portuguese");
 	printf("=		SISTEMA DE VENDA DE PASSAGEM RODOVIARIA			=\n");
 	printf("=========================================================================\n");
 	system("color CF");
- 
+	
      int a[9][4], l, c, menu, soma, qtd, lugar,  qa;
      double meia, inteira, idoso,t;
      char psg;
-     qtd = 0;
+
+	 qtd = 0;
      soma = 0;
      qa = 0;
      menu = 0;
      t = 0;
+     
      meia = 0;
      inteira = 0;
      idoso = 0;
@@ -42,7 +47,7 @@ setlocale(LC_ALL, "Portuguese");
      printf("\n     *4 - VENDER PASSAGEM Normal      *");
      printf("\n     *5 - VENDER PASSAGEM Meia        *");
      printf("\n     *6 - VENDER PASSAGEM Idoso       *");
-     printf("\n     *7 - TOTAL DE PASSAGENS VENDIDAS *");
+	 printf("\n     *7 - TOTAL DE PASSAGENS VENDIDAS *");
      printf("\n     *8 - SAIR                        *");
      printf("\n     **********************************");
      printf("\n     DIGITE A OPCAO DESEJADA: ");
@@ -68,7 +73,6 @@ setlocale(LC_ALL, "Portuguese");
                               printf("\n");
                               }
             break;
-            
             case 2:
                  for (l=0;l<9;l++)
                  {
@@ -91,7 +95,6 @@ setlocale(LC_ALL, "Portuguese");
                               printf("\n");
                               }
             break;
-            
             case 3:
                  for (l=0;l<9;l++)
                  {
@@ -113,7 +116,6 @@ setlocale(LC_ALL, "Portuguese");
                                        printf("\n");
                                        }
             break;
-            
             case 4:
                  volta:
                 
@@ -138,18 +140,16 @@ setlocale(LC_ALL, "Portuguese");
                               }
                  else
                  {
-
-                     printf("\nAS POLTRONAS SÃƒO SOMENTE DE 1 A 36!!!\n");
-                     
+                     printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
                      goto volta;
                      }
             break;
-            
-            case 5:
+             case 5:
                  
-                 printf("\nDIGITE O NUMERO DA POLTRONA:  ");
-                 scanf(" %d " , &lugar);
                 
+                
+                 printf("\nDIGITE O NUMERO DA POLTRONA: ");
+                 scanf("%d", &lugar);
                  if (lugar>=1 && lugar<=36)
                  {
                  soma++;
@@ -168,12 +168,15 @@ setlocale(LC_ALL, "Portuguese");
                               }
                  else
                  {
-                     printf("\nAS POLTRONAS SÃƒO SOMENTE DE 1 A 36!!!\n");
+                     printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
                      
                      }
             break;
             
-            case 6:
+             case 6:
+                 
+                
+                
                  printf("\nDIGITE O NUMERO DA POLTRONA: ");
                  scanf("%d", &lugar);
                  if (lugar>=1 && lugar<=36)
@@ -187,14 +190,14 @@ setlocale(LC_ALL, "Portuguese");
                           if (a[l][c]==lugar)
                           {
                               a[l][c]=0;
-                              idoso++;
+                              
                               }
                               }
                               }
                               }
                  else
                  {
-                     printf("\nAS POLTRONAS SÃƒO SOMENTE DE 1 A 36!!!\n");
+                     printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
                      
                      }
             break;
