@@ -220,9 +220,9 @@ setlocale(LC_ALL, "Portuguese");
                          }
                          }
                          printf("\n++++++++TOTAL DE PASSAGENS VENDIDAS++++++++\n");
-                         printf("\nTOTAL DE PASSAGENS DE INTEIRA:%4.2f\n ", inteira );
-                         printf("\nTOTAL DE PASSAGENS DE ESTUDANTE:%4.2f\n ", estudante );
-                         printf("\nTOTAL DE PASSAGENS DE IDOSO:%4.2f\n ", idoso );
+                         printf("\nTOTAL DE PASSAGENS DE INTEIRA:%2.0f\n ", inteira );
+                         printf("\nTOTAL DE PASSAGENS DE ESTUDANTE:%2.0f\n ", estudante );
+                         printf("\nTOTAL DE PASSAGENS DE IDOSO:%2.0f\n ", idoso );
                          printf("\nTOTAL R$%4.2f\n", total);
              break;
              default :
