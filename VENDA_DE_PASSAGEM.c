@@ -1,9 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
 #include <time.h> 
-
-
-
 
 int main()
 {
@@ -15,79 +13,80 @@ setlocale(LC_ALL, "Portuguese");
 	printf("=		SISTEMA DE VENDA DE PASSAGEM RODOVIARIA			=\n");
 	printf("=========================================================================\n");
 	system("color CF");
-	
-     int a[9][4], l, c, menu, soma, qtd, lugar,  qa;
-     double meia, inteira, idoso,t;
+ 
+     int a[9][4], linha, coluna, menu, soma, qtd, poltrona,  qa;
+     double estudante, inteira, idoso, total;
      char psg;
-
-	 qtd = 0;
+     qtd = 0;
      soma = 0;
      qa = 0;
      menu = 0;
-     t = 0;
-     
-     meia = 0;
+     total = 0;
+     estudante = 0;
      inteira = 0;
      idoso = 0;
      
-     for (l=0;l<9;l++)
+     for (linha=0;linha<9;linha++)
      {
-        for (c=0;c<4;c++)
+        for (coluna=0;coluna<4;coluna++)
         {
             qtd++;
-            a[l][c] = qtd;
+            a[linha][coluna] = qtd;
             }
             }
      while (menu!=8)
      {
-     printf("\n     ***************MENU***************");
-     printf("\n     *1 - POLTRONAS OCUPADAS          *");
-     printf("\n     *2 - POLTRONAS NA JANELA         *");
-     printf("\n     *3 - POLTRONAS NO CORREDOR       *");
-     printf("\n     *4 - VENDER PASSAGEM Normal      *");
-     printf("\n     *5 - VENDER PASSAGEM Meia        *");
-     printf("\n     *6 - VENDER PASSAGEM Idoso       *");
-	 printf("\n     *7 - TOTAL DE PASSAGENS VENDIDAS *");
-     printf("\n     *8 - SAIR                        *");
-     printf("\n     **********************************");
-     printf("\n     DIGITE A OPCAO DESEJADA: ");
+     printf("\n               ***************MENU***************");
+     printf("\n               *1 - POLTRONAS OCUPADAS          *");
+     printf("\n               *2 - POLTRONAS NA JANELA         *");
+     printf("\n               *3 - POLTRONAS NO CORREDOR       *");
+     printf("\n               *4 - VENDER PASSAGEM INTEIRA     *");
+     printf("\n               *5 - VENDER PASSAGEM ESTUDANTE   *");
+     printf("\n               *6 - VENDER PASSAGEM IDOSO       *");
+     printf("\n               *7 - TOTAL DE PASSAGENS VENDIDAS *");
+     printf("\n               *8 - SAIR                        *");
+     printf("\n               **********************************");
+     printf("\n               DIGITE A OPCAO DESEJADA: ");
      scanf("%d", &menu);
      system("cls");
      switch (menu)
      {
-            case 1:
-                 for (l=0;l<9;l++)
+            //POLTRONAS OCUPADAS
+			case 1:
+                 for (linha=0;linha<9;linha++)
                  {
-                     for (c=0;c<4;c++)
+                     for (coluna=0;coluna<4;coluna++)
                      {
 
-                        if (a[l][c]==0)
+                        if (a[linha][coluna]==0)
                          {
-                              printf("[ v ] ");
+                              printf("[ X ] ");
                               }
                               else
                               {
-                                  printf("[ %d] ", a[l][c]);
+                                  printf("[ %d] ", a[linha][coluna]);
                                   }
                               }
                               printf("\n");
                               }
             break;
+            
+            // POLTRONAS NA JANELA
             case 2:
-                 for (l=0;l<9;l++)
+                 for (linha=0;linha<9;linha++)
                  {
-                     for (c=0;c<4;c++)
+                     for (coluna=0;coluna<4;coluna++)
                      {
-                       if (a[l][c]==0)
+                       if (a[linha][coluna]==0)
                          {
                               printf("[ X ]");
                               }
-                        else  if (c==0 || c==3)
+                        else  if (coluna==0 || coluna==3)
                          {
-                                  printf("[ %d ] ", a[l][c]);
+                                  printf("[ %d ] ", a[linha][coluna]);
                                   }
 
-                         else if (c==1 || c==2)
+                         else if (coluna==1 || coluna==2)
                          {
                               printf("[   ] ");
                               }
@@ -95,20 +94,22 @@ setlocale(LC_ALL, "Portuguese");
                               printf("\n");
                               }
             break;
-            case 3:
-                 for (l=0;l<9;l++)
+            
+            // POLTRONAS NO CORREDOR
+			case 3:
+                 for (linha=0;linha<9;linha++)
                  {
-                     for (c=0;c<4;c++)
+                     for (coluna=0;coluna<4;coluna++)
                      {
-                     if (a[l][c]==0)
+                     if (a[linha][coluna]==0)
                                   {
                                        printf("[ X ] ");
                                        }
-                       else  if (c==1 || c==2)
+                       else  if (coluna==1 || coluna==2)
                          {
-                                  printf("[ %d] ", a[l][c]);
+                                  printf("[ %d] ", a[linha][coluna]);
                                   }
-                                  else if (c==0 || c==3)
+                                  else if (coluna==0 || coluna==3)
                                   {
                                        printf("[   ] ");
                                        }
@@ -116,23 +117,25 @@ setlocale(LC_ALL, "Portuguese");
                                        printf("\n");
                                        }
             break;
+            
+            //PASSAGENS NORMAIS
             case 4:
                  volta:
                 
-                
-                 printf("\nDIGITE O NUMERO DA POLTRONA: ");
-                 scanf("%d", &lugar);
-                 if (lugar>=1 && lugar<=36)
+                 printf("\n++++++ VENDA PASSAGENS INTEIRAS ++++++\n");
+                 printf("\nDIGITE O NÚMERO DA POLTRONA: ");
+                 scanf("%d", &poltrona);
+                 if (poltrona>=1 && poltrona<=36)
                  {
                  soma++;
-                 qa++;
-                 for (l=0;l<9;l++)
+                 inteira++;
+                 for (linha=0;linha<9;linha++)
                  {
-                     for(c=0;c<4;c++)
+                     for(coluna=0;coluna<4;coluna++)
                      {
-                          if (a[l][c]==lugar)
+                          if (a[linha][coluna]==poltrona)
                           {
-                              a[l][c]=0;
+                              a[linha][coluna]=0;
                               
                               }
                               }
@@ -140,27 +143,29 @@ setlocale(LC_ALL, "Portuguese");
                               }
                  else
                  {
+
                      printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
+                     
                      goto volta;
                      }
             break;
-             case 5:
-                 
-                
-                
-                 printf("\nDIGITE O NUMERO DA POLTRONA: ");
-                 scanf("%d", &lugar);
-                 if (lugar>=1 && lugar<=36)
+            
+            //PASSAGENS DE ESTUDANTE 
+            case 5:
+                 printf("\n++++++VENDA PASSAGENS ESTUDANTE ++++++\n");
+                 printf("\nDIGITE O NÚMERO DA POLTRONA:  ");
+                 scanf("%d", &poltrona);
+                 if (poltrona>=1 && poltrona<=36)
                  {
                  soma++;
-                 meia++;
-                 for (l=0;l<9;l++)
+                 estudante++;
+                 for (linha=0;linha<9;linha++)
                  {
-                     for(c=0;c<4;c++)
+                     for(coluna=0;coluna<4;coluna++)
                      {
-                          if (a[l][c]==lugar)
+                          if (a[linha][coluna]==poltrona)
                           {
-                              a[l][c]=0;
+                              a[linha][coluna]=0;
                               
                               }
                               }
@@ -173,23 +178,22 @@ setlocale(LC_ALL, "Portuguese");
                      }
             break;
             
-             case 6:
-                 
-                
-                
+            //PASSAGENS DE IDOSO
+            case 6:
+            	printf("\n++++++VENDA PASSAGENS DE IDOSO++++++\n");
                  printf("\nDIGITE O NUMERO DA POLTRONA: ");
-                 scanf("%d", &lugar);
-                 if (lugar>=1 && lugar<=36)
+                 scanf("%d", &poltrona);
+                 if (poltrona>=1 && poltrona<=36)
                  {
                  soma++;
                  idoso++;
-                 for (l=0;l<9;l++)
+                 for (linha=0;linha<9;linha++)
                  {
-                     for(c=0;c<4;c++)
+                     for(coluna=0;coluna<4;coluna++)
                      {
-                          if (a[l][c]==lugar)
+                          if (a[linha][coluna]==poltrona)
                           {
-                              a[l][c]=0;
+                              a[linha][coluna]=0;
                               
                               }
                               }
@@ -202,23 +206,27 @@ setlocale(LC_ALL, "Portuguese");
                      }
             break;
             
+            
             case 7:
                  printf("\nVALOR DA PASSAGEM R$15,00");
-                 for (l=0;l<9;l++)
+                 for (linha=0;linha<9;linha++)
                  {
-                     for (c=0;c<4;c++)
+                     for (coluna=0;coluna<4;coluna++)
                      {
-                         if (a[l][c]==0)
-                         {
-                         t = (qa*15)+(meia*7.5)+(idoso*0);
+                         if (a[linha][coluna]==0)
+                         {	
+                         total = (inteira*15)+(estudante*7.5)+(idoso*0);
                          }
                          }
                          }
-                         printf("\nTOTAL DE PASSAGENS VENDIDAS inteiras %4d meia %4f idoso %4f", qa, meia, idoso);
-                         printf("\nTOTAL R$%f\n", t);
+                         printf("\n++++++++TOTAL DE PASSAGENS VENDIDAS++++++++\n");
+                         printf("\nTOTAL DE PASSAGENS DE INTEIRA:%4.2f\n ", inteira );
+                         printf("\nTOTAL DE PASSAGENS DE ESTUDANTE:%4.2f\n ", estudante );
+                         printf("\nTOTAL DE PASSAGENS DE IDOSO:%4.2f\n ", idoso );
+                         printf("\nTOTAL R$%4.2f\n", total);
              break;
              default :
-                     printf("\nOPCAO INVALIDA\n");
+                     printf("\nOPCAO INVÁLIDA\n");
              break;
              }
              }
