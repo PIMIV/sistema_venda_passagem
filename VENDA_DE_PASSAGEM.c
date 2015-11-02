@@ -1,14 +1,6 @@
 #include <stdio.h>
 #include <locale.h>
-<<<<<<< HEAD
 #include <time.h> 
-
-=======
-#include <time.h> /*pra mecher com hora e data*/
->>>>>>> refs/remotes/PIMIV/master
-
-
-     	
 
 int main()
 {
@@ -20,32 +12,19 @@ setlocale(LC_ALL, "Portuguese");
 	printf("=		SISTEMA DE VENDA DE PASSAGEM RODOVIARIA			=\n");
 	printf("=========================================================================\n");
 	system("color CF");
-	
-<<<<<<< HEAD
+ 
      int a[9][4], l, c, menu, soma, qtd, lugar,  qa;
      double meia, inteira, idoso,t;
      char psg;
-     
-    
-	 
-
-	 qtd = 0;
-=======
-     int a[9][4], l, c, menu, soma, qtd, lugar, t, qa; /*mudei de 12 p/ 9 = 36*/
      qtd = 0;
->>>>>>> refs/remotes/PIMIV/master
      soma = 0;
      qa = 0;
      menu = 0;
      t = 0;
-<<<<<<< HEAD
-     
      meia = 0;
      inteira = 0;
      idoso = 0;
      
-=======
->>>>>>> refs/remotes/PIMIV/master
      for (l=0;l<9;l++)
      {
         for (c=0;c<4;c++)
@@ -63,7 +42,7 @@ setlocale(LC_ALL, "Portuguese");
      printf("\n     *4 - VENDER PASSAGEM Normal      *");
      printf("\n     *5 - VENDER PASSAGEM Meia        *");
      printf("\n     *6 - VENDER PASSAGEM Idoso       *");
-	 printf("\n     *7 - TOTAL DE PASSAGENS VENDIDAS *");
+     printf("\n     *7 - TOTAL DE PASSAGENS VENDIDAS *");
      printf("\n     *8 - SAIR                        *");
      printf("\n     **********************************");
      printf("\n     DIGITE A OPCAO DESEJADA: ");
@@ -159,24 +138,18 @@ setlocale(LC_ALL, "Portuguese");
                               }
                  else
                  {
-<<<<<<< HEAD
-                     printf("\nAS POLTRONAS SﾃO SOMENTE DE 1 A 36!!!\n");
-=======
-                     printf("\nAS POLTRONAS Sﾃグ SOMENTE DE 1 A 48!!!\n");
->>>>>>> refs/remotes/PIMIV/master
+
+                     printf("\nAS POLTRONAS Sﾃグ SOMENTE DE 1 A 36!!!\n");
+                     
                      goto volta;
                      }
             break;
             
             case 5:
                  
-            
-                
                  printf("\nDIGITE O NUMERO DA POLTRONA:  ");
                  scanf(" %d " , &lugar);
-                 
-                 
-            
+                
                  if (lugar>=1 && lugar<=36)
                  {
                  soma++;
@@ -195,15 +168,12 @@ setlocale(LC_ALL, "Portuguese");
                               }
                  else
                  {
-                     printf("\nAS POLTRONAS SﾃO SOMENTE DE 1 A 36!!!\n");
+                     printf("\nAS POLTRONAS Sﾃグ SOMENTE DE 1 A 36!!!\n");
                      
                      }
             break;
             
             case 6:
-                 
-                
-                
                  printf("\nDIGITE O NUMERO DA POLTRONA: ");
                  scanf("%d", &lugar);
                  if (lugar>=1 && lugar<=36)
@@ -224,7 +194,7 @@ setlocale(LC_ALL, "Portuguese");
                               }
                  else
                  {
-                     printf("\nAS POLTRONAS SﾃO SOMENTE DE 1 A 36!!!\n");
+                     printf("\nAS POLTRONAS Sﾃグ SOMENTE DE 1 A 36!!!\n");
                      
                      }
             break;
