@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <locale.h>
+<<<<<<< HEAD
 #include <time.h> 
 
+=======
+#include <time.h> /*pra mecher com hora e data*/
+>>>>>>> refs/remotes/PIMIV/master
 
 
      	
@@ -17,6 +21,7 @@ setlocale(LC_ALL, "Portuguese");
 	printf("=========================================================================\n");
 	system("color CF");
 	
+<<<<<<< HEAD
      int a[9][4], l, c, menu, soma, qtd, lugar,  qa;
      double meia, inteira, idoso,t;
      char psg;
@@ -25,15 +30,22 @@ setlocale(LC_ALL, "Portuguese");
 	 
 
 	 qtd = 0;
+=======
+     int a[9][4], l, c, menu, soma, qtd, lugar, t, qa; /*mudei de 12 p/ 9 = 36*/
+     qtd = 0;
+>>>>>>> refs/remotes/PIMIV/master
      soma = 0;
      qa = 0;
      menu = 0;
      t = 0;
+<<<<<<< HEAD
      
      meia = 0;
      inteira = 0;
      idoso = 0;
      
+=======
+>>>>>>> refs/remotes/PIMIV/master
      for (l=0;l<9;l++)
      {
         for (c=0;c<4;c++)
@@ -147,7 +159,11 @@ setlocale(LC_ALL, "Portuguese");
                               }
                  else
                  {
+<<<<<<< HEAD
                      printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
+=======
+                     printf("\nAS POLTRONAS SÃƒO SOMENTE DE 1 A 48!!!\n");
+>>>>>>> refs/remotes/PIMIV/master
                      goto volta;
                      }
             break;
