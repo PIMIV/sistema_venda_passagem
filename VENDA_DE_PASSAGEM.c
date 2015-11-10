@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <time.h>
+#include <conio.c>
+#include <conio.h>
 
 int main()
 {
