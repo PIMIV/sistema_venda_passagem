@@ -3,6 +3,43 @@
 #include <locale.h>
 #include <time.h> 
 
+
+char dadospassagem(){
+	
+	char origem[20];
+	char dataorigem[15];
+	char horaorigem[15];
+	char destino[20];
+	char horachegada[10];
+	char datachegada[10];
+	char num_onibus[10];
+	char nada[5];
+	printf("DADOS DA PASSAGEM");
+	gets(nada);
+	printf("\nNUMERO DO ONIBUS:\n");
+	gets(num_onibus);
+	printf("\nCIDADE DE ORIGEM:\n");
+	gets(origem);
+	printf("\nHORA DE SAÍDA:\n");
+	gets(horaorigem);
+	printf("\nDATA DE SAÍDA\n");
+	gets(dataorigem);
+	printf("\nLOCAL DE DESTINO:\n");
+	gets(destino);
+	printf("\nHORA DE CHEGADA:\n");
+	gets(horachegada);
+	printf("\nDATA DE CHEGADA:\n");
+	gets(datachegada);
+	
+	printf("\nONIBUS DE NUMERO %s, SAINDO DE : %s AS %s DO DIA %s COM DESTINO A: %s %s HORAS DO DIA %s \n", num_onibus, origem, horaorigem, dataorigem, destino, horachegada, datachegada);
+	
+	system("pause");
+	return 0;
+}
+
+
+
+
 int main()
 {
 
@@ -16,7 +53,7 @@ setlocale(LC_ALL, "Portuguese");
  
      int a[9][4], linha, coluna, menu, soma, qtd, poltrona,  qa;
      double estudante, inteira, idoso, total;
-     char psg;
+     char dadospassagem();
      qtd = 0;
      soma = 0;
      qa = 0;
@@ -75,7 +112,8 @@ setlocale(LC_ALL, "Portuguese");
                  volta:
                 
                  printf("\n++++++ VENDA PASSAGENS INTEIRAS ++++++\n");
-                 printf("\nDIGITE O NÚMERO DA POLTRONA: ");
+                 dadospassagem();
+				 printf("\nDIGITE O NÚMERO DA POLTRONA: ");
                  scanf("%d", &poltrona);
                  if (poltrona>=1 && poltrona<=36)
                  {
@@ -105,7 +143,8 @@ setlocale(LC_ALL, "Portuguese");
             //PASSAGENS DE ESTUDANTE 
             case 3:
                  printf("\n++++++VENDA PASSAGENS ESTUDANTE ++++++\n");
-                 printf("\nDIGITE O NÚMERO DA POLTRONA:  ");
+                dadospassagem();
+				 printf("\nDIGITE O NÚMERO DA POLTRONA:  ");
                  scanf("%d", &poltrona);
                  if (poltrona>=1 && poltrona<=36)
                  {
@@ -133,7 +172,8 @@ setlocale(LC_ALL, "Portuguese");
             //PASSAGENS DE IDOSO
             case 4:
             	printf("\n++++++VENDA PASSAGENS DE IDOSO++++++\n");
-                 printf("\nDIGITE O NUMERO DA POLTRONA: ");
+                dadospassagem();
+				 printf("\nDIGITE O NUMERO DA POLTRONA: ");
                  scanf("%d", &poltrona);
                  if (poltrona>=1 && poltrona<=36)
                  {
