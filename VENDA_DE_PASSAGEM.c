@@ -3,8 +3,8 @@
 #include <locale.h>
 #include <time.h>
 //inclusao das bibliotecas usadas
-char a[9][4], linha, coluna,qtd;
-double total,estudante, inteira, idoso;
+	char a[9][4], linha, coluna,qtd;
+	double total,estudante, inteira, idoso;
     int opcao_destino, menu, soma, poltrona, qa, hora, data;
     int linha1, linha2, linha3, dd, mm, aaaa, assento;
     
@@ -20,9 +20,6 @@ double total,estudante, inteira, idoso;
     char hora6[20] = "18:00";
     char hora7[20] = "19:00";
     char hora8[20] = "21:00";
-    
-    
-    
 void poltronasocupadas(){
 	for (linha=0;linha<9;linha++)
                 {
@@ -52,9 +49,7 @@ void codigo(){//codigo principal
 	
 }
 void menuRenda(){ 
-	char op;
-	
-
+	char op;	
 	total = (inteira*50)+(estudante*25)+(idoso*0);
 	printf("\n====================VALOR DA PASSAGEM====================\n");
     printf("\nPASSAGEM INTEIRA R$50,00\n");
@@ -69,29 +64,34 @@ void menuRenda(){
     printf("\nTOTAL R$%4.2f\n", total);
     
 }
+void escolhadahora(){
+	            printf("=========================================================");
+                printf("\nHORÁRIO DO BILHETE   \n[1] 07:00\t[5] 15:00\n[2] 09:00\t[6] 17:00\n[3] 11:00\t[7] 19:00\n[4] 13:00\t[8] 21:00\n");
+                printf("ESCOLHA A OPÇÃO DESEJADA: ");
+                scanf("%d", &hora);
 
-//função ESCOLHA DA POLTRONA
-
-void escolhapoltrona(){
+                printf("=========================================================\n\n\n\n");
+                system("cls");
+				
+				printf("=========================================================");
+                printf("\n=\t\tEMISSÃO DO BILHETE\t\t\t=\n");
                 printf("=========================================================");
+                printf("\n=\t\tPassagem Inteira\t\t\t=\n");
+                printf("=========================================================");  
+}
+void escolhadapoltrona(){
+	printf("=========================================================");
                 poltrona:
 				printf("\nDIGITE O NÚMERO DA POLTRONA: ");
                 scanf("%d", &poltrona);
-				if (poltrona <1 || poltrona >36){
+				if (poltrona <1 || poltrona >36)
+                {
                 printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
                 goto poltrona;
                 }
-				}
-
-
-void passageminteira(){
-	            printf("=========================================================");
-                printf("\n=\t\tVENDA PASSAGENS INTEIRAS\t\t=\n");
-                printf("=========================================================");
-
-                //ESCOLHA DA LINHA E DESTINO
-                destino1:
-				printf("\n\n+++++++++++++++++++ MENU LINHA/DESTINO ++++++++++++++++++"),   
+}
+void linhadestino_escolha(){
+	printf("\n\n+++++++++++++++++++ MENU LINHA/DESTINO ++++++++++++++++++"),   
 				printf ("\n[1] LINHA 100 - BRASÍLIA"); 
 				printf ("\n[2] LINHA 200 - NATAL");
 				printf ("\n[3] LINHA 300 - SANTOS\n");
@@ -101,13 +101,34 @@ void passageminteira(){
                 {
                 	printf("OPÇÃO INVÁLIDA!!");
                 	printf("\n=========================================================");
-                goto destino1;
-				}
-
-                //ESCOLHA DA POLTRONA
-				
-				void escolhapoltrona();
                 
+				}
+}
+void linhadestino_escrita(){
+	                if (opcao_destino == 1)
+                {
+                printf("\nDESTINO:\t\t%s\n",destino1);
+                }
+                if (opcao_destino == 2)
+                {
+                printf("\nDESTINO:\t\t%s\n",destino2);
+                }
+                if (opcao_destino == 3)
+                {
+                printf("\nDESTINO:\t\t%s\n",destino3);
+                }
+}
+void passageminteira(){
+	            printf("=========================================================");
+                printf("\n=\t\tVENDA PASSAGENS INTEIRAS\t\t=\n");
+                printf("=========================================================");
+
+                //ESCOLHA DA LINHA E DESTINO
+                destino1:
+				linhadestino_escolha();
+
+                //ESCOLHA DA POLTRONA               
+                escolhadapoltrona();
 				//ESCOLHA DA DATA:
 						//escolha do dia
 				dia1:
@@ -138,19 +159,7 @@ void passageminteira(){
 
 
                 //ESCOLHA DA HORA:
-                printf("=========================================================");
-                printf("\nHORÁRIO DO BILHETE   \n[1] 07:00\t[5] 15:00\n[2] 09:00\t[6] 17:00\n[3] 11:00\t[7] 19:00\n[4] 13:00\t[8] 21:00\n");
-                printf("ESCOLHA A OPÇÃO DESEJADA: ");
-                scanf("%d", &hora);
-
-                printf("=========================================================\n\n\n\n");
-                system("cls");
-				
-				printf("=========================================================");
-                printf("\n=\t\tEMISSÃO DO BILHETE\t\t\t=\n");
-                printf("=========================================================");
-                printf("\n=\t\tPassagem Inteira\t\t\t=\n");
-                printf("=========================================================");                 
+               escolhadahora();
                 
                 //ESCREVER A ESCOLHA DO NUMERO DO ÔNIBUS
                 if (opcao_destino == 1)
@@ -167,18 +176,7 @@ void passageminteira(){
                 }
 
                 //ESCREVER A ESCOLHA DO DESTINO
-                if (opcao_destino == 1)
-                {
-                printf("\nDESTINO:\t\t%s\n",destino1);
-                }
-                if (opcao_destino == 2)
-                {
-                printf("\nDESTINO:\t\t%s\n",destino2);
-                }
-                if (opcao_destino == 3)
-                {
-                printf("\nDESTINO:\t\t%s\n",destino3);
-                }
+				linhadestino_escrita();
 
                 //ESCREVER A POLTRONA
                 printf("NUMERO DA POLTRONA:\t%2.2d\n",poltrona);
@@ -252,30 +250,10 @@ void passagemestudante(){
                 printf("=========================================================");
 
                 //ESCOLHA DA LINHA E DESTINO
-                destino2:
-				printf("\n\n+++++++++++++++++++ MENU LINHA/DESTINO ++++++++++++++++++"),   
-				printf ("\n[1] LINHA 100 - BRASÍLIA"); 
-				printf ("\n[2] LINHA 200 - NATAL");
-				printf ("\n[3] LINHA 300 - SANTOS\n");
-                printf("ESCOLHA A OPÇÃO DESEJADA: ");
-                scanf("%d", &opcao_destino);
-                if (opcao_destino < 1 || opcao_destino >3)
-                {
-                	printf("OPÇÃO INVÁLIDA!!");
-                	printf("\n=========================================================");
-                goto destino2;
-				}
+                 linhadestino_escolha();
 
                 //ESCOLHA DA POLTRONA
-                printf("=========================================================");
-                poltrona2:
-				printf("\nDIGITE O NÚMERO DA POLTRONA: ");
-                scanf("%d", &poltrona);
-				if (poltrona <1 || poltrona >36)
-                {
-                printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
-                goto poltrona2;
-                }
+              escolhadapoltrona();
                 
 				//ESCOLHA DA DATA:
 						//escolha do dia
@@ -307,22 +285,10 @@ void passagemestudante(){
 
 
                 //ESCOLHA DA HORA:
-                printf("=========================================================");
-                printf("\nHORÁRIO DO BILHETE   \n[1] 07:00\t[5] 15:00\n[2] 09:00\t[6] 17:00\n[3] 11:00\t[7] 19:00\n[4] 13:00\t[8] 21:00\n");
-                printf("ESCOLHA A OPÇÃO DESEJADA: ");
-                scanf("%d", &hora);
-
-                printf("=========================================================\n\n\n\n");
-                system("cls");
-				
-				printf("=========================================================");
-                printf("\n=\t\tEMISSÃO DO BILHETE\t\t\t=\n");
-                printf("=========================================================");
-                printf("\n=\t\tPassagem Estudante\t\t\t=\n");
-                printf("=========================================================");                 
+               escolhadahora();                
                 
                 //ESCREVER A ESCOLHA DO NUMERO DO ÔNIBUS
-                if (opcao_destino == 1)
+                 if (opcao_destino == 1)
                 {
                 printf("\nNUMERO DO ÔNIBUS:\t%d",linha1);
                 }
@@ -336,18 +302,7 @@ void passagemestudante(){
                 }
 
                 //ESCREVER A ESCOLHA DO DESTINO
-                if (opcao_destino == 1)
-                {
-                printf("\nDESTINO:\t\t%s\n",destino1);
-                }
-                if (opcao_destino == 2)
-                {
-                printf("\nDESTINO:\t\t%s\n",destino2);
-                }
-                if (opcao_destino == 3)
-                {
-                printf("\nDESTINO:\t\t%s\n",destino3);
-                }
+                linhadestino_escrita();
 
                 //ESCREVER A POLTRONA
                 printf("NUMERO DA POLTRONA:\t%2.2d\n",poltrona);
@@ -425,30 +380,10 @@ void passagemidoso(){
                 printf("=========================================================");
 
                 //ESCOLHA DA LINHA E DESTINO
-                destino3:
-				printf("\n\n+++++++++++++++++++ MENU LINHA/DESTINO ++++++++++++++++++"),   
-				printf ("\n[1] LINHA 100 - BRASÍLIA"); 
-				printf ("\n[2] LINHA 200 - NATAL");
-				printf ("\n[3] LINHA 300 - SANTOS\n");
-                printf("ESCOLHA A OPÇÃO DESEJADA: ");
-                scanf("%d", &opcao_destino);
-                if (opcao_destino < 1 || opcao_destino >3)
-                {
-                	printf("OPÇÃO INVÁLIDA!!");
-                	printf("\n=========================================================");
-                goto destino3;
-				}
+                linhadestino_escolha();
 
                 //ESCOLHA DA POLTRONA
-                printf("=========================================================");
-                poltrona3:
-				printf("\nDIGITE O NÚMERO DA POLTRONA: ");
-                scanf("%d", &poltrona);
-				if (poltrona <1 || poltrona >36)
-                {
-                printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
-                goto poltrona3;
-                }
+               escolhadapoltrona();
                 
 				//ESCOLHA DA DATA:
 						//escolha do dia
@@ -480,19 +415,7 @@ void passagemidoso(){
 
 
                 //ESCOLHA DA HORA:
-                printf("=========================================================");
-                printf("\nHORÁRIO DO BILHETE   \n[1] 07:00\t[5] 15:00\n[2] 09:00\t[6] 17:00\n[3] 11:00\t[7] 19:00\n[4] 13:00\t[8] 21:00\n");
-                printf("ESCOLHA A OPÇÃO DESEJADA: ");
-                scanf("%d", &hora);
-
-                printf("=========================================================\n\n\n\n");
-                system("cls");
-				
-				printf("=========================================================");
-                printf("\n=\t\tEMISSÃO DO BILHETE\t\t\t=\n");
-                printf("=========================================================");
-                printf("\n=\t\tPassagem Idoso\t\t\t=\n");
-                printf("=========================================================");                
+                escolhadahora();               
                 
                 //ESCREVER A ESCOLHA DO NUMERO DO ÔNIBUS
                 if (opcao_destino == 1)
@@ -509,18 +432,7 @@ void passagemidoso(){
                 }
 
                 //ESCREVER A ESCOLHA DO DESTINO
-                if (opcao_destino == 1)
-                {
-                printf("\nDESTINO:\t\t%s\n",destino1);
-                }
-                if (opcao_destino == 2)
-                {
-                printf("\nDESTINO:\t\t%s\n",destino2);
-                }
-                if (opcao_destino == 3)
-                {
-                printf("\nDESTINO:\t\t%s\n",destino3);
-                }
+             linhadestino_escrita();
 
                 //ESCREVER A POLTRONA
                 printf("NUMERO DA POLTRONA:\t%2.2d\n",poltrona);
@@ -599,7 +511,7 @@ int main()
 {
 
 setlocale(LC_ALL, "Portuguese");
-system ("title SISTEMA DE VENDA DE PASSAGEM RODOVIÁRIA");
+//system ("title SISTEMA DE VENDA DE PASSAGEM RODOVIÁRIA");
 
 	printf("=========================================================================\n");
 	printf("=		SISTEMA DE VENDA DE PASSAGEM RODOVIÁRIA		                	=\n");
@@ -613,7 +525,10 @@ system ("title SISTEMA DE VENDA DE PASSAGEM RODOVIÁRIA");
 	void passagemestudante();
 	void passageminteira();
 	void poltronasocupadas();
-	void escolhapoltrona ();
+	void linhadestino_escolha();
+	void linhadestino_escrita();
+	void escolhadapoltrona();
+	void escolhadahora();
 //declaração das variaveis
 
 //inicialização de variaveis
