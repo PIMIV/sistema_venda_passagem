@@ -118,6 +118,54 @@ void linhadestino_escrita(){
                 printf("\nDESTINO:\t\t%s\n",destino3);
                 }
 }
+void escolhanumonibus(){
+	                if (opcao_destino == 1)
+                {
+                printf("\nNUMERO DO ÔNIBUS:\t%d",linha1);
+                }
+                if (opcao_destino == 2)
+                {
+                printf("\nNUMERO DO ÔNIBUS:\t%d",linha2);
+                }
+                if (opcao_destino == 3)
+                {
+                printf("\nNUMERO DO ÔNIBUS:\t%d",linha3);
+                }
+}
+void escreverhorario(){
+	                if (hora == 1)
+                {
+                printf("HORÁRIO:\t\t%shs\n",hora1);
+                }
+                if (hora == 2)
+                {
+                printf("HORÁRIO:\t\t%shs\n",hora2);
+                }
+                if (hora == 3)
+                {
+                printf("HORÁRIO:\t\t%shs\n",hora3);
+                }
+                if (hora == 4)
+                {
+                printf("HORÁRIO:\t\t%shs\n",hora4);
+                }
+                if (hora == 5)
+                {
+                printf("HORÁRIO:\t\t%shs\n",hora5);
+                }
+                if (hora == 6)
+                {
+                printf("HORÁRIO:\t\t%shs\n",hora6);
+                }
+                if (hora == 7)
+                {
+                printf("HORÁRIO:\t\t%shs\n",hora7);
+                }
+                if (hora == 8)
+                {
+                printf("HORÁRIO:\t\t%shs\n",hora8);
+                }
+}
 void passageminteira(){
 	            printf("=========================================================");
                 printf("\n=\t\tVENDA PASSAGENS INTEIRAS\t\t=\n");
@@ -159,21 +207,10 @@ void passageminteira(){
 
 
                 //ESCOLHA DA HORA:
-               escolhadahora();
+                escolhadahora();
                 
                 //ESCREVER A ESCOLHA DO NUMERO DO ÔNIBUS
-                if (opcao_destino == 1)
-                {
-                printf("\nNUMERO DO ÔNIBUS:\t%d",linha1);
-                }
-                if (opcao_destino == 2)
-                {
-                printf("\nNUMERO DO ÔNIBUS:\t%d",linha2);
-                }
-                if (opcao_destino == 3)
-                {
-                printf("\nNUMERO DO ÔNIBUS:\t%d",linha3);
-                }
+                escolhanumonibus();
 
                 //ESCREVER A ESCOLHA DO DESTINO
 				linhadestino_escrita();
@@ -185,38 +222,7 @@ void passageminteira(){
 				printf("DATA:\t\t\t%2.2d/%2.2d/%d\n", dd, mm, aaaa);
 
                 //ESCREVER O HORÁRIO
-                if (hora == 1)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora1);
-                }
-                if (hora == 2)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora2);
-                }
-                if (hora == 3)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora3);
-                }
-                if (hora == 4)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora4);
-                }
-                if (hora == 5)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora5);
-                }
-                if (hora == 6)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora6);
-                }
-                if (hora == 7)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora7);
-                }
-                if (hora == 8)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora8);
-                }
+                escreverhorario();
 
 
                 if (poltrona>=1 && poltrona<=36)
@@ -253,7 +259,7 @@ void passagemestudante(){
                  linhadestino_escolha();
 
                 //ESCOLHA DA POLTRONA
-              escolhadapoltrona();
+                 escolhadapoltrona();
                 
 				//ESCOLHA DA DATA:
 						//escolha do dia
@@ -288,18 +294,7 @@ void passagemestudante(){
                escolhadahora();                
                 
                 //ESCREVER A ESCOLHA DO NUMERO DO ÔNIBUS
-                 if (opcao_destino == 1)
-                {
-                printf("\nNUMERO DO ÔNIBUS:\t%d",linha1);
-                }
-                if (opcao_destino == 2)
-                {
-                printf("\nNUMERO DO ÔNIBUS:\t%d",linha2);
-                }
-                if (opcao_destino == 3)
-                {
-                printf("\nNUMERO DO ÔNIBUS:\t%d",linha3);
-                }
+                escolhanumonibus();
 
                 //ESCREVER A ESCOLHA DO DESTINO
                 linhadestino_escrita();
@@ -311,42 +306,9 @@ void passagemestudante(){
 				printf("DATA:\t\t\t%2.2d/%2.2d/%d\n", dd, mm, aaaa);
 
                 //ESCREVER O HORÁRIO
-                if (hora == 1)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora1);
-                }
-                if (hora == 2)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora2);
-                }
-                if (hora == 3)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora3);
-                }
-                if (hora == 4)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora4);
-                }
-                if (hora == 5)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora5);
-                }
-                if (hora == 6)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora6);
-                }
-                if (hora == 7)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora7);
-                }
-                if (hora == 8)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora8);
-                }
+                escreverhorario();
 
-                 
-                 
-                 
+                                               
                  
                  if (poltrona>=1 && poltrona<=36)
                  {
@@ -418,21 +380,10 @@ void passagemidoso(){
                 escolhadahora();               
                 
                 //ESCREVER A ESCOLHA DO NUMERO DO ÔNIBUS
-                if (opcao_destino == 1)
-                {
-                printf("\nNUMERO DO ÔNIBUS:\t%d",linha1);
-                }
-                if (opcao_destino == 2)
-                {
-                printf("\nNUMERO DO ÔNIBUS:\t%d",linha2);
-                }
-                if (opcao_destino == 3)
-                {
-                printf("\nNUMERO DO ÔNIBUS:\t%d",linha3);
-                }
+                escolhanumonibus();
 
                 //ESCREVER A ESCOLHA DO DESTINO
-             linhadestino_escrita();
+                linhadestino_escrita();
 
                 //ESCREVER A POLTRONA
                 printf("NUMERO DA POLTRONA:\t%2.2d\n",poltrona);
@@ -441,41 +392,7 @@ void passagemidoso(){
 				printf("DATA:\t\t\t%2.2d/%2.2d/%d\n", dd, mm, aaaa);
 
                 //ESCREVER O HORÁRIO
-                if (hora == 1)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora1);
-                }
-                if (hora == 2)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora2);
-                }
-                if (hora == 3)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora3);
-                }
-                if (hora == 4)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora4);
-                }
-                if (hora == 5)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora5);
-                }
-                if (hora == 6)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora6);
-                }
-                if (hora == 7)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora7);
-                }
-                if (hora == 8)
-                {
-                printf("HORÁRIO:\t\t%shs\n",hora8);
-                }
-
-
-
+				 escreverhorario();
 
 
                 if (poltrona>=1 && poltrona<=36)
@@ -529,6 +446,8 @@ setlocale(LC_ALL, "Portuguese");
 	void linhadestino_escrita();
 	void escolhadapoltrona();
 	void escolhadahora();
+	void escolhanumonibus();
+	void escreverhorario();
 //declaração das variaveis
 
 //inicialização de variaveis
