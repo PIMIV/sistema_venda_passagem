@@ -3,7 +3,7 @@
 #include <locale.h>
 #include <time.h>
 //inclusao das bibliotecas usadas
-	char a[9][4], linha, coluna,qtd;
+	char a[9][4], b[9][4], c[9][4], linha, coluna,qtd;
 	double total,estudante, inteira, idoso;
     int opcao_destino, menu, soma, poltrona, qa, hora, data;
     int linha1, linha2, linha3, dd, mm, aaaa, assento;
@@ -21,7 +21,15 @@
     char hora7[20] = "19:00";
     char hora8[20] = "21:00";
 void poltronasocupadas(){
-	for (linha=0;linha<9;linha++)
+	printf("\n\n+++++++++++++++++++ MENU LINHA/DESTINO ++++++++++++++++++"),   
+				printf ("\n[1] LINHA 100 - BRASÍLIA"); 
+				printf ("\n[2] LINHA 200 - NATAL");
+				printf ("\n[3] LINHA 300 - SANTOS\n");
+                printf("ESCOLHA A OPÇÃO DESEJADA: ");
+                scanf("%d", &opcao_destino);
+                switch (opcao_destino){
+                	case 1:								
+               	for (linha=0;linha<9;linha++)
                 {
                     for (coluna=0;coluna<4;coluna++)
                     {
@@ -36,8 +44,47 @@ void poltronasocupadas(){
                     }
                 printf("\n");
                 }
+            break;
+            case 2: 
+            for (linha=0;linha<9;linha++)
+                {
+                    for (coluna=0;coluna<4;coluna++)
+                    {
+                        if (b[linha][coluna]==0)
+                        {
+                        printf("[ X ] ");
+                        }
+                        else
+                        {
+                        printf("[%d]\t ", b[linha][coluna]);
+                        }
+                    }
+                printf("\n");
+                }
+            break;
+            case 3:
+            for (linha=0;linha<9;linha++)
+                {
+                    for (coluna=0;coluna<4;coluna++)
+                    {
+                        if (c[linha][coluna]==0)
+                        {
+                        printf("[ X ] ");
+                        }
+                        else
+                        {
+                        printf("[%d]\t ", c[linha][coluna]);
+                        }
+                    }
+                printf("\n");
+                }
+            break;
+             default :
+                printf("\nOPCAO INVÁLIDA\n");
+            break;
+			}
 }
-void codigo(){//codigo principal
+void codigoA(){//codigo principal
 	    for (linha=0;linha<9;linha++)   //varredura da matriz
     {
         for (coluna=0;coluna<4;coluna++)
@@ -46,6 +93,31 @@ void codigo(){//codigo principal
             a[linha][coluna] = qtd;
         }
     }
+
+	
+}
+void codigoB(){//codigo principal
+	    for (linha=0;linha<9;linha++)   //varredura da matriz
+    {
+        for (coluna=0;coluna<4;coluna++)
+        {
+            qtd++;
+            b[linha][coluna] = qtd;
+        }
+    }
+
+	
+}
+void codigoC(){//codigo principal
+	    for (linha=0;linha<9;linha++)   //varredura da matriz
+    {
+        for (coluna=0;coluna<4;coluna++)
+        {
+            qtd++;
+            c[linha][coluna] = qtd;
+        }
+    }
+
 	
 }
 void menuRenda(){ 
@@ -97,13 +169,47 @@ void linhadestino_escolha(){
 				printf ("\n[3] LINHA 300 - SANTOS\n");
                 printf("ESCOLHA A OPÇÃO DESEJADA: ");
                 scanf("%d", &opcao_destino);
-                if (opcao_destino < 1 || opcao_destino >3)
-                {
-                	printf("OPÇÃO INVÁLIDA!!");
-                	printf("\n=========================================================");
-                
-				}
-}
+                switch (opcao_destino){
+                	case 1:								
+                    for (linha=0;linha<9;linha++)
+                    {
+                        for (coluna=0;coluna<4;coluna++)
+                        {
+                            if (a[linha][coluna]==poltrona)
+                            {
+                            a[linha][coluna]=0;
+                            }
+                        }
+                    }
+            break;
+            case 2: 
+                                for (linha=0;linha<9;linha++)
+                    {
+                        for (coluna=0;coluna<4;coluna++)
+                        {
+                            if (a[linha][coluna]==poltrona)
+                            {
+                            b[linha][coluna]=0;
+                            }
+                        }
+                    }
+            break;
+            case 3:
+                                for (linha=0;linha<9;linha++)
+                    {
+                        for (coluna=0;coluna<4;coluna++)
+                        {
+                            if (a[linha][coluna]==poltrona)
+                            {
+                            c[linha][coluna]=0;
+                            }
+                        }
+                    }
+            break;
+             default :
+                printf("\nOPCAO INVÁLIDA\n");
+            break;
+}}
 void linhadestino_escrita(){
 	                if (opcao_destino == 1)
                 {
@@ -172,11 +278,22 @@ void passageminteira(){
                 printf("=========================================================");
 
                 //ESCOLHA DA LINHA E DESTINO
-                destino1:
-				linhadestino_escolha();
+                
 
                 //ESCOLHA DA POLTRONA               
                 escolhadapoltrona();
+                                if (poltrona>=1 && poltrona<=36)
+                {
+
+                inteira++;
+                destino1:
+				linhadestino_escolha();
+                }
+                if (poltrona >36)
+                {
+                printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
+                //goto volta;
+                }
 				//ESCOLHA DA DATA:
 						//escolha do dia
 				dia1:
@@ -225,26 +342,7 @@ void passageminteira(){
                 escreverhorario();
 
 
-                if (poltrona>=1 && poltrona<=36)
-                {
 
-                inteira++;
-                    for (linha=0;linha<9;linha++)
-                    {
-                        for (coluna=0;coluna<4;coluna++)
-                        {
-                            if (a[linha][coluna]==poltrona)
-                            {
-                            a[linha][coluna]=0;
-                            }
-                        }
-                    }
-                }
-                if (poltrona >36)
-                {
-                printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
-                //goto volta;
-                }
 				printf("=========================================================\n\n");
 			sleep(5);// o bilhete aparece por 5 segundos
 	
@@ -256,10 +354,23 @@ void passagemestudante(){
                 printf("=========================================================");
 
                 //ESCOLHA DA LINHA E DESTINO
-                 linhadestino_escolha();
+                 
 
                 //ESCOLHA DA POLTRONA
                  escolhadapoltrona();
+                 
+                                  if (poltrona>=1 && poltrona<=36)
+                 {
+                 soma++;
+                 estudante++;
+                destino1:
+				linhadestino_escolha(); 
+                              }
+                 else
+                 {
+                     printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
+                     
+                     }
                 
 				//ESCOLHA DA DATA:
 						//escolha do dia
@@ -310,27 +421,7 @@ void passagemestudante(){
 
                                                
                  
-                 if (poltrona>=1 && poltrona<=36)
-                 {
-                 soma++;
-                 estudante++;
-                 for (linha=0;linha<9;linha++)
-                 {
-                     for(coluna=0;coluna<4;coluna++)
-                     {
-                          if (a[linha][coluna]==poltrona)
-                          {
-                              a[linha][coluna]=0;
-                              
-                              }
-                              }
-                              }
-                              }
-                 else
-                 {
-                     printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
-                     
-                     }
+
 printf("=========================================================\n\n");
 			sleep(5);// o bilhete aparece por 5 segundos
 	
@@ -341,11 +432,29 @@ void passagemidoso(){
                 printf("\n=\t\tVENDA PASSAGENS IDOSO\t\t=\n");
                 printf("=========================================================");
 
-                //ESCOLHA DA LINHA E DESTINO
-                linhadestino_escolha();
+            //ESCOLHA DA LINHA E DESTINO
+                
 
                 //ESCOLHA DA POLTRONA
                escolhadapoltrona();
+               
+                               if (poltrona>=1 && poltrona<=36)
+                 {
+                 soma++;
+                 idoso++;
+                if (idoso >2){ //retorna mais que duas passagem para idoso
+                printf("PASSAGEM PARA IDOSO ESGOTADA!!!");
+                idoso--;
+                linhadestino_escolha();
+				}
+                    
+
+				
+                }
+                if (poltrona > 36)
+                {
+                     printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
+                }
                 
 				//ESCOLHA DA DATA:
 						//escolha do dia
@@ -395,31 +504,7 @@ void passagemidoso(){
 				 escreverhorario();
 
 
-                if (poltrona>=1 && poltrona<=36)
-                 {
-                 soma++;
-                 idoso++;
-                if (idoso >2){ //retorna mais que duas passagem para idoso
-                printf("PASSAGEM PARA IDOSO ESGOTADA!!!");
-                idoso--;
-                
-				}
-                    
-					for (linha=0;linha<9;linha++)
-                    {
-                        for(coluna=0;coluna<4;coluna++)
-                        {
-                            if (a[linha][coluna]==poltrona)
-                            {
-                              a[linha][coluna]=0;
-                            }
-                        }
-                    }
-                }
-                if (poltrona > 36)
-                {
-                     printf("\nAS POLTRONAS SÃO SOMENTE DE 1 A 36!!!\n");
-                }
+
 			printf("=========================================================\n\n");
 			sleep(5);// o bilhete aparece por 5 segundos
 }
@@ -437,7 +522,9 @@ setlocale(LC_ALL, "Portuguese");
 	system ("date /t");
 	system ("time /t");
 	void menuRenda();
-	void codigo();
+	void codigoA();
+	void codigoB();
+	void codigoC();
 	void passagemidoso();
 	void passagemestudante();
 	void passageminteira();
@@ -463,7 +550,9 @@ setlocale(LC_ALL, "Portuguese");
 
 
 //INICIO DO CODIGO
-   codigo();
+   codigoA();
+   codigoB();
+   codigoC();
     while (menu!=6) //menu principal
     {
     printf("\n               ***************MENU***************");
