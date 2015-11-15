@@ -3,7 +3,7 @@
 #include <locale.h>
 #include <time.h>
 //inclusao das bibliotecas usadas
-	char a[9][4], b[9][4], c[9][4], linha, coluna, qtdA, qtdB, qtdC, linhaA, linhaB, linhaC, colunaA, colunaB, colunaC;
+	char a[9][4], b[9][4], c[9][4], linha, coluna, qtdA, qtdB, qtdC, linhaA, linhaB, linhaC, colunaA, colunaB, colunaC, vendido;
 	double total,estudante, inteira, idoso;
     int opcao_destino, menu, soma, poltrona, qa, hora, data;
     int linha1, linha2, linha3, dd, mm, aaaa, assento;
@@ -64,7 +64,7 @@ void poltronasocupadas(){
             printf("\n");
 			for (linhaA=0;linhaA<9;linhaA++){
                 for (colunaA=0;colunaA<4;colunaA++){
-                	if (a[linhaA][colunaA]==0){
+                	if (a[linhaA][colunaA]==vendido){
                         printf("[  X  ] ");
                     }
                     else{
@@ -80,7 +80,7 @@ void poltronasocupadas(){
             printf("\n");
 			for (linhaB=0;linhaB<9;linhaB++){
                     for (colunaB=0;colunaB<4;colunaB++){
-                        if (b[linhaB][colunaB]==0){
+                        if (b[linhaB][colunaB]==vendido){
                         printf("[  X  ] ");
                         }
                         else{
@@ -96,7 +96,7 @@ void poltronasocupadas(){
             printf("\n");
 			for (linhaC=0;linhaC<9;linhaC++){
                 for (colunaC=0;colunaC<4;colunaC++){
-                    if (c[linhaC][colunaC]==0){
+                    if (c[linhaC][colunaC]==vendido){
                         printf("[  X  ] ");
                     }
                         else{
@@ -198,7 +198,7 @@ void linhadestino_escolha(){
             for (linhaA=0;linhaA<9;linhaA++){
                 for (colunaA=0;colunaA<4;colunaA++){
                     if (a[linhaA][colunaA]==poltrona){
-                        a[linhaA][colunaA]=0;
+                        a[linhaA][colunaA]=vendido;
 					}
                 }
             }
@@ -208,7 +208,7 @@ void linhadestino_escolha(){
             for (linhaB=0;linhaB<9;linhaB++){
                 for (colunaB=0;colunaB<4;colunaB++){
                 	if (b[linhaB][colunaB]==poltrona){
-                        b[linhaB][colunaB]=0;
+                        b[linhaB][colunaB]=vendido;
                     }
                 }
             }
@@ -218,7 +218,7 @@ void linhadestino_escolha(){
             for (linhaC=0;linhaC<9;linhaC++){
                 for (colunaC=0;colunaC<4;colunaC++){
                 	if (c[linhaC][colunaC]==poltrona){
-                            c[linhaC][colunaC]=0;
+                            c[linhaC][colunaC]=vendido;
                             }
                         }
                     }
@@ -463,7 +463,8 @@ setlocale(LC_ALL, "Portuguese");
      estudante = 0;
      inteira = 0;
      idoso = 0;
-     qtdA = 0, qtdB = 0, qtdC = 0;  
+     qtdA = 0, qtdB = 0, qtdC = 0;
+	 a[9][4] = 0, b[9][4] =0, c[9][4]=0;  
 
 
 
