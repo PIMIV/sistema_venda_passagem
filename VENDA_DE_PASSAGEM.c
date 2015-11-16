@@ -7,7 +7,11 @@
 	double total,estudante, inteira, idoso;
     int opcao_destino, menu, soma, poltrona, qa, hora, data;
     int linha1, linha2, linha3, dd, mm, aaaa, assento;
-    
+    enum boolean {
+    	true = 1, false = 0
+	};
+	typedef enum boolean bool;
+	bool passagem_vendidaB = 0, passagem_vendidaN = 0, passagem_vendidaS = 0;
     char psg, ocupado;
     char destino1[20] = "BRASÍLIA";
     char destino2[20] = "NATAL";
@@ -194,34 +198,57 @@ void linhadestino_escolha(){
     printf("DIGITE A OPÇÃO DESEJADA: ");
     scanf("%d", &opcao_destino);
     switch (opcao_destino){
-      	case 1:								
+      	case 1:
+		  if (passagem_vendidaB == 0){
+		  printf("\n POLTRONA DISPONIVEL NA LINHA BRASÍLIA \n");								
             for (linhaA=0;linhaA<9;linhaA++){
                 for (colunaA=0;colunaA<4;colunaA++){
                     if (a[linhaA][colunaA]==poltrona){
                         a[linhaA][colunaA]=vendido;
+                        passagem_vendidaB = 1;
 					}
                 }
             }
+        } else {
+        	printf("\n POLTRONA OCUPADA JA OCUPADA NA LINHA BRASILIA!\n");
+        	printf(" \n ESCOLHA OUTRA LINHA OU UMA POLTRONA DIFERENTE\n");
+        	main();
+		}
         break;
             
 		case 2: 
-            for (linhaB=0;linhaB<9;linhaB++){
+            if (passagem_vendidaN == 0){		
+			for (linhaB=0;linhaB<9;linhaB++){
+				printf("\n POLTRONA DISPONIVEL NA LINHA NATAL \n");
                 for (colunaB=0;colunaB<4;colunaB++){
                 	if (b[linhaB][colunaB]==poltrona){
                         b[linhaB][colunaB]=vendido;
+                        passagem_vendidaN = 1;
                     }
                 }
             }
+        } else{
+        	printf("POLTRONA OCUPADA JA OCUPADA NA LINHA NATAL!");
+        	printf(" \n ESCOLHA OUTRA LINHA OU UMA POLTRONA DIFERENTE\n");
+        	main();
+		}
         break;
         
         case 3:
-            for (linhaC=0;linhaC<9;linhaC++){
+           if (passagem_vendidaS == 0){		   
+		    for (linhaC=0;linhaC<9;linhaC++){
                 for (colunaC=0;colunaC<4;colunaC++){
                 	if (c[linhaC][colunaC]==poltrona){
                             c[linhaC][colunaC]=vendido;
+                            passagem_vendidaS = 1;
                             }
                         }
                     }
+					}else {
+			printf("POLTRONA OCUPADA JA OCUPADA NA LINHA SANTOS!");
+        	printf(" \n ESCOLHA OUTRA LINHA OU UMA POLTRONA DIFERENTE\n");
+        	main();	
+					}
             break;
              default :
                 printf("\nOPCAO INVÁLIDA\n");
