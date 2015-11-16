@@ -212,14 +212,15 @@ void linhadestino_escolha(){
         } else {
         	printf("\n POLTRONA OCUPADA JA OCUPADA NA LINHA BRASILIA!\n");
         	printf(" \n ESCOLHA OUTRA LINHA OU UMA POLTRONA DIFERENTE\n");
-        	main();
+        	sleep(3);
+			main();
 		}
         break;
             
 		case 2: 
-            if (passagem_vendidaN == 0){		
-			for (linhaB=0;linhaB<9;linhaB++){
-				printf("\n POLTRONA DISPONIVEL NA LINHA NATAL \n");
+            if (passagem_vendidaN == 0){
+			printf("\n POLTRONA DISPONIVEL NA LINHA NATAL \n");		
+			for (linhaB=0;linhaB<9;linhaB++){				
                 for (colunaB=0;colunaB<4;colunaB++){
                 	if (b[linhaB][colunaB]==poltrona){
                         b[linhaB][colunaB]=vendido;
@@ -228,14 +229,16 @@ void linhadestino_escolha(){
                 }
             }
         } else{
-        	printf("POLTRONA OCUPADA JA OCUPADA NA LINHA NATAL!");
+        	printf("\n POLTRONA OCUPADA JA OCUPADA NA LINHA NATAL!\n ");
         	printf(" \n ESCOLHA OUTRA LINHA OU UMA POLTRONA DIFERENTE\n");
-        	main();
+        	sleep(3);
+			main();
 		}
         break;
         
         case 3:
-           if (passagem_vendidaS == 0){		   
+           if (passagem_vendidaS == 0){	
+		   printf("\n POLTRONA DISPONIVEL NA LINHA SANTOS! \n");	   
 		    for (linhaC=0;linhaC<9;linhaC++){
                 for (colunaC=0;colunaC<4;colunaC++){
                 	if (c[linhaC][colunaC]==poltrona){
@@ -245,9 +248,10 @@ void linhadestino_escolha(){
                         }
                     }
 					}else {
-			printf("POLTRONA OCUPADA JA OCUPADA NA LINHA SANTOS!");
+			printf("\n POLTRONA OCUPADA JA OCUPADA NA LINHA SANTOS!\n ");
         	printf(" \n ESCOLHA OUTRA LINHA OU UMA POLTRONA DIFERENTE\n");
-        	main();	
+        	sleep(3);
+			main();	
 					}
             break;
              default :
