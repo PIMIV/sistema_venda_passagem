@@ -8,12 +8,11 @@
     int opcao_destino, menu, soma, poltrona, qa, hora, data, compra;
     int linha1, linha2, linha3, dd, mm, aaaa;
         enum boolean {
-    	true = 1, false = 0
-	};
+    	true = 1, false = 0};
 	typedef enum boolean bool;
 	bool passagem_vendidaB = 0, passagem_vendidaN = 0, passagem_vendidaS = 0;
     
-    char destino1[20] = "BRAS√çLIA";
+    char destino1[20] = "BRASÕLIA";
     char destino2[20] = "NATAL";
     char destino3[20]= "SANTOS";
     char hora1[20] = "07:00";
@@ -25,10 +24,11 @@
     char hora7[20] = "19:00";
     char hora8[20] = "21:00";
     
+//FUN«√O PARA O MENU PRINCIPAL    
 int menuPrincipal(){
 	while (menu!=6){ //menu principal
 	
-	//Escreve a fun√ß√£o do cabe√ßalho
+	//Escreve a funÁ„o do cabeÁalho
 		cabecalho();
 		printf("\n            ******************MENU***************");
 		printf("\n            * [1] - POLTRONAS OCUPADAS          *");
@@ -36,7 +36,7 @@ int menuPrincipal(){
 		printf("\n            * [3] - TOTAL DE PASSAGENS VENDIDAS *");
 		printf("\n            * [4] - SAIR                        *");
 		printf("\n            *************************************");
-		printf("\n            DIGITE A OP√á√ÉO DESEJADA: ");
+		printf("\n            DIGITE A OP«√O DESEJADA: ");
 		scanf("%d", &menu);
 		system("cls");
     	switch (menu){
@@ -59,12 +59,13 @@ int menuPrincipal(){
 			exit(0);
  //DEFAULT 
             default :
-                printf("\nOPCAO INV√ÅLIDA\n");
+                printf("\nOPCAO INV¡LIDA\n");
             break;
         }
     }    		
  }  //fim do menu principal
-    
+
+//FUN«√O PARA O MENU DE COMPRA    
 int menucompras(){
 	cabecalho();
 	
@@ -74,7 +75,7 @@ int menucompras(){
    	printf("\n            * [3] - PASSAGEM IDOSO              *");
     printf("\n            * [4] - SAIR                        *");
     printf("\n            *************************************");
-    printf("\n            DIGITE A OP√á√ÉO DESEJADA: ");
+    printf("\n            DIGITE A OP«√O DESEJADA: ");
     scanf("%d", &compra);
     system("cls");
 	switch (compra){
@@ -97,49 +98,52 @@ int menucompras(){
 		break;
 		
 		default :
-        	printf("\nOPCAO INV√ÅLIDA\n");
+        	printf("\nOPCAO INV¡LIDA\n");
         break;
 	}	
 }     
 
+//FUN«√O PARA A ENTRADA DO CABE«ALHO
 int cabecalho(){
 	printf("=========================================================\n");
-	printf("         SISTEMA DE VENDA DE PASSAGEM RODOVI√ÅRIA         \n");
+	printf("         SISTEMA DE VENDA DE PASSAGEM RODOVI¡RIA         \n");
 	printf("=========================================================\n");
 	printf("DATA : %s \t\tHORA: %s\n",__DATE__,__TIME__);
 	system("color 4F");
 	
 }
-    
+ 
+//FUN«√O PARA ESCOLHA DA DATA   
 void escolhadata(){
     printf("\n=========================================================");
     dia1:
 	printf ("\nDIGITE O DATA DD/MM/AAAA: "); 
 	scanf (" %d %*c %d %*c %d", &dd, &mm,&aaaa); 
     if (dd < 1 || dd > 31){
-    	printf("\nESCOLHA UM DIA V√ÅLIDO");
+    	printf("\nESCOLHA UM DIA V¡LIDO");
     goto dia1;
     }                           
 	else if (mm < 1 || mm > 12){
-    	printf("\nESCOLHA UM M√äS V√ÅLIDO!!");
+    	printf("\nESCOLHA UM M S V¡LIDO!!");
     goto dia1;
 	}
 
 	else if (aaaa <2015 || aaaa >2016){
-    	printf("\nESCOLHA UM ANO V√ÅLIDO!!");
+    	printf("\nESCOLHA UM ANO V¡LIDO!!");
     goto dia1;
 	}		
 }
 
+//FUN«√O PARA POLTRONAS OCUPADAS
 int poltronasocupadas(){
 	cabecalho();
 	printf ("\n         *************** POLTRONAS **************");
-	printf ("\n         *[1] POLTRONAS LINHA 100 - BRAS√çLIA    *"); 
+	printf ("\n         *[1] POLTRONAS LINHA 100 - BRASÕLIA    *"); 
 	printf ("\n         *[2] POLTRONAS LINHA 200 - NATAL       *");
 	printf ("\n         *[3] POLTRONAS LINHA 300 - SANTOS      *");
 	printf ("\n         *[4] VOLTAR AO MENU PRINCIPAL          *");
 	printf ("\n         **************************************\n");
-    printf ("           DIGITE A OP√á√ÉO DESEJADA: ");
+    printf ("           DIGITE A OP«√O DESEJADA: ");
     scanf("%d", &opcao_destino);
     switch (opcao_destino){
     	case 1:								
@@ -147,7 +151,7 @@ int poltronasocupadas(){
 			for (linhaA=0;linhaA<9;linhaA++){
                 for (colunaA=0;colunaA<4;colunaA++){
                 	if (a[linhaA][colunaA]==poltrona){
-                        printf("[  X  ] \n");
+                        printf("[  X  ]");
                     }
                     else{
                         printf("[ %2d ]\t ", a[linhaA][colunaA]);
@@ -164,7 +168,7 @@ int poltronasocupadas(){
 			for (linhaB=0;linhaB<9;linhaB++){
                     for (colunaB=0;colunaB<4;colunaB++){
                         if (b[linhaB][colunaB]==poltrona){
-                        printf("[  X  ] ");
+                        printf("[  X  ]");
                         }
                         else{
                         printf("[ %2d ]\t ", b[linhaB][colunaB]);
@@ -181,7 +185,7 @@ int poltronasocupadas(){
 			for (linhaC=0;linhaC<9;linhaC++){
                 for (colunaC=0;colunaC<4;colunaC++){
                     if (c[linhaC][colunaC]==poltrona){
-                        printf("[  X  ] ");
+                        printf("[  X  ]");
                     }
                         else{
                         printf("[ %2d ]\t ", c[linhaC][colunaC]);
@@ -200,11 +204,12 @@ int poltronasocupadas(){
 		break;    
         
 		default :
-        	printf("\nOPCAO INV√ÅLIDA\n");
+        	printf("\nOPCAO INV¡LIDA\n");
         break;
 			}
 	}
 
+//FUN«√O DA VARREDURA DA MATRIZ LINHA 100
 void codigoA(){//codigo principal
 	for (linhaA=0;linhaA<9;linhaA++){   //varredura da matriz
 		for (colunaA=0;colunaA<4;colunaA++){
@@ -214,6 +219,7 @@ void codigoA(){//codigo principal
     }	
 }
 
+//FUN«√O DA VARREDURA DA MATRIZ LINHA 200
 void codigoB(){//codigo principal
 	for (linhaB=0;linhaB<9;linhaB++){   //varredura da matriz
     	for (colunaB=0;colunaB<4;colunaB++){
@@ -223,6 +229,7 @@ void codigoB(){//codigo principal
     }	
 }
 
+//FUN«√O DA VARREDURA DA MATRIZ LINHA 300
 void codigoC(){//codigo principal
 	for (linhaC=0;linhaC<9;linhaC++){   //varredura da matriz
     	for (colunaC=0;colunaC<4;colunaC++){
@@ -232,6 +239,7 @@ void codigoC(){//codigo principal
     }	
 }
 
+//FUN«√O PARA O MENU COM OS RENDIMENTOS
 int menuRenda(){ 
 		
 	total = (inteira*50)+(estudante*25)+(idoso*0);
@@ -252,10 +260,11 @@ int menuRenda(){
 	menuPrincipal();
 }
 
+//FUN«√O PARA ECOLHA DA HORA
 void escolhadahora(){
     printf("=========================================================");
-    printf("\nHOR√ÅRIO DO BILHETE   \n[1] 07:00\t[5] 15:00\n[2] 09:00\t[6] 17:00\n[3] 11:00\t[7] 19:00\n[4] 13:00\t[8] 21:00\n");
-    printf("ESCOLHA A OP√á√ÉO DESEJADA: ");
+    printf("\nHOR¡RIO DO BILHETE   \n[1] 07:00\t[5] 15:00\n[2] 09:00\t[6] 17:00\n[3] 11:00\t[7] 19:00\n[4] 13:00\t[8] 21:00\n");
+    printf("ESCOLHA A OP«√O DESEJADA: ");
     scanf("%d", &hora);
 
     printf("=========================================================\n\n\n\n");
@@ -263,30 +272,60 @@ void escolhadahora(){
 	
 	cabecalho();			
 	printf("=========================================================");
-    printf("\n\t\t EMISS√ÉO DO BILHETE\t\t\t\n");
+    printf("\n\t\t EMISS√O DO BILHETE\t\t\t\n");
     printf("=========================================================");
 }
+
+// FUN«√O PARA ESCOLHA DA POLTRONA
 void escolhadapoltrona(){
 	printf("\n=========================================================");
     poltrona:
-	printf("\nDIGITE O N√öMERO DA POLTRONA: ");
+	printf("\nDIGITE O N⁄MERO DA POLTRONA: ");
     scanf("%d", &poltrona);
 	if (poltrona <1 || poltrona >36){
-    	printf("\nAS POLTRONAS S√ÉO SOMENTE DE 1 A 36!!!\n");
+    	printf("\nAS POLTRONAS S√O SOMENTE DE 1 A 36!!!\n");
     goto poltrona;
     }
+				
+//estrutura que retorna a poltrona ocupada       				
+	if(a[linha-1][coluna-1]==poltrona){
+    	printf("\nERRO POLTRONA J¡ OCUPADA!");
+    	printf("\n=========================================================");
+    goto poltrona;
+    }
+
+//estrutura que retorna a poltrona ocupada       
+	if(b[linha-1][coluna-1]==poltrona){
+    	printf("\nERRO POLTRONA J¡ OCUPADA!");
+    	printf("\n=========================================================");
+    goto poltrona;
+    }       
+
+//estrutura que retorna a poltrona ocupada          
+	if(c[linha-1][coluna-1]==poltrona){
+    	printf("\nERRO POLTRONA J¡ OCUPADA!");
+    	printf("\n=========================================================");
+    goto poltrona;
+    }
+	else{
+        a[linha-1][coluna-1]=poltrona;
+        b[linha-1][coluna-1]=poltrona;
+		c[linha-1][coluna-1]=poltrona;
+        printf("\nPOLTRONA RESERVADA COM SUCESSO");
+	}
 }
-//FUN√á√ÉO PARA ESCOLHA DA LINHA/DESTINO																					
+
+//FUN«√O PARA ESCOLHA DA LINHA/DESTINO																					
 void linhadestino_escolha(){
 	
 	printf("\n=========================================================");
 	printf("\n		ESCOLHA A LINHA/DESTINO					");   
 	printf("\n=========================================================");
-	printf("\n[1] LINHA 100 - BRAS√çLIA"); 
+	printf("\n[1] LINHA 100 - BRASÕLIA"); 
 	printf("\n[2] LINHA 200 - NATAL");
 	printf("\n[3] LINHA 300 - SANTOS");
 	printf("\n[4] SAIR");
-    printf("\nDIGITE A OP√á√ÉO DESEJADA: ");
+    printf("\nDIGITE A OP«√O DESEJADA: ");
     scanf("%d", &opcao_destino);
     switch (opcao_destino){
       	case 1:								
@@ -325,11 +364,11 @@ void linhadestino_escolha(){
 		break;
             
         default :
-            printf("\nOPCAO INV√ÅLIDA\n");
+            printf("\nOPCAO INV¡LIDA\n");
         break;
 	}
 }
-//FUN√á√ÉO PARA ESCREVER O DESTINO																					
+//FUN«√O PARA ESCREVER O DESTINO																					
 void linhadestino_escrita(){
 	if (opcao_destino == 1){
         printf("\nDESTINO:\t\t%s\n",destino1);
@@ -343,48 +382,48 @@ void linhadestino_escrita(){
         printf("\nDESTINO:\t\t%s\n",destino3);
     }
 }
-//FUN√á√ÉO PARA ESCREVER A LINHA																					
+//FUN«√O PARA ESCREVER A LINHA																					
 void escolhanumonibus(){
 	if (opcao_destino == 1){
-        printf("\nNUMERO DO √îNIBUS:\t%d",linha1);
+        printf("\nNUMERO DO ‘NIBUS:\t%d",linha1);
     }
                 
 	else if (opcao_destino == 2){
-        printf("\nNUMERO DO √îNIBUS:\t%d",linha2);
+        printf("\nNUMERO DO ‘NIBUS:\t%d",linha2);
     }
     else if (opcao_destino == 3){
-        printf("\nNUMERO DO √îNIBUS:\t%d",linha3);
+        printf("\nNUMERO DO ‘NIBUS:\t%d",linha3);
     }
 }
-//FUN√á√ÉO PARA ESCREVER HORARIO																
+//FUN«√O PARA ESCREVER HORARIO																
 void escreverhorario(){
 	if (hora == 1){
-        printf("HOR√ÅRIO:\t\t%shs\n",hora1);
+        printf("HOR¡RIO:\t\t%shs\n",hora1);
     }
     else if (hora == 2){
-        printf("HOR√ÅRIO:\t\t%shs\n",hora2);
+        printf("HOR¡RIO:\t\t%shs\n",hora2);
     }
     else if (hora == 3){
-    	printf("HOR√ÅRIO:\t\t%shs\n",hora3);
+    	printf("HOR¡RIO:\t\t%shs\n",hora3);
     }
     else if (hora == 4){
-    	printf("HOR√ÅRIO:\t\t%shs\n",hora4);
+    	printf("HOR¡RIO:\t\t%shs\n",hora4);
     }
     else if (hora == 5){
-        printf("HOR√ÅRIO:\t\t%shs\n",hora5);
+        printf("HOR¡RIO:\t\t%shs\n",hora5);
     }
     else if (hora == 6){
-    	printf("HOR√ÅRIO:\t\t%shs\n",hora6);
+    	printf("HOR¡RIO:\t\t%shs\n",hora6);
     }
     else if (hora == 7){
-    printf("HOR√ÅRIO:\t\t%shs\n",hora7);
+    printf("HOR¡RIO:\t\t%shs\n",hora7);
     }
     else if (hora == 8){
-    printf("HOR√ÅRIO:\t\t%shs\n",hora8);
+    printf("HOR¡RIO:\t\t%shs\n",hora8);
     }
 }
 
-//FUN√á√ÉO PARA VENDA DE PASSAGEM INTEIRA																										
+//FUN«√O PARA VENDA DE PASSAGEM INTEIRA																										
 int passageminteira(){
 	cabecalho();
 	printf("=========================================================");
@@ -393,13 +432,13 @@ int passageminteira(){
     //ESCOLHA DA POLTRONA               
     volta:
     linhadestino_escolha();
-    poltrona1:
 	escolhadapoltrona();
+	
     if (poltrona>=1 && poltrona<=36){
     	inteira++;
 	}
     else if (poltrona >36){
-    	printf("\nAS POLTRONAS S√ÉO SOMENTE DE 1 A 36!!!\n");
+    	printf("\nAS POLTRONAS S√O SOMENTE DE 1 A 36!!!\n");
     goto volta;
     }
     
@@ -409,7 +448,7 @@ int passageminteira(){
     //ESCOLHA DA HORA:
     escolhadahora();
     
-    //ESCREVER A ESCOLHA DO NUMERO DO √îNIBUS
+    //ESCREVER A ESCOLHA DO NUMERO DO ‘NIBUS
     escolhanumonibus();
 
     //ESCREVER A ESCOLHA DO DESTINO
@@ -421,7 +460,7 @@ int passageminteira(){
     //ESCREVER A DATA
 	printf("DATA:\t\t\t%2.2d/%2.2d/%d\n", dd, mm, aaaa);
 
-    //ESCREVER O HOR√ÅRIO
+    //ESCREVER O HOR¡RIO
 	escreverhorario();
  	
 	printf("=========================================================\n\n");
@@ -430,7 +469,7 @@ int passageminteira(){
 }
 
 
-//FUN√á√ÉO PARA VENDA DE PASSAGEM ESTUDANTE																								
+//FUN«√O PARA VENDA DE PASSAGEM ESTUDANTE																								
 int passagemestudante(){
 	cabecalho();
 	printf("=========================================================");
@@ -446,7 +485,7 @@ int passagemestudante(){
     	estudante++;
     }
     else{
-        printf("\nAS POLTRONAS S√ÉO SOMENTE DE 1 A 36!!!\n");
+        printf("\nAS POLTRONAS S√O SOMENTE DE 1 A 36!!!\n");
     }
     
 	//ESCOLHA DA DATA:
@@ -455,7 +494,7 @@ int passagemestudante(){
     //ESCOLHA DA HORA:
     escolhadahora();                
     
-    //ESCREVER A ESCOLHA DO NUMERO DO √îNIBUS
+    //ESCREVER A ESCOLHA DO NUMERO DO ‘NIBUS
     escolhanumonibus();
 
     //ESCREVER A ESCOLHA DO DESTINO
@@ -467,7 +506,7 @@ int passagemestudante(){
     //ESCREVER A DATA
 	printf("DATA:\t\t\t%2.2d/%2.2d/%d\n", dd, mm, aaaa);
 
-    //ESCREVER O HOR√ÅRIO
+    //ESCREVER O HOR¡RIO
     escreverhorario();
 
 	printf("=========================================================\n\n");
@@ -475,7 +514,7 @@ int passagemestudante(){
 	system("cls");
 }
 
-//FUN√á√ÉO PARA VENDA DE PASSAGEM IDOSO																								
+//FUN«√O PARA VENDA DE PASSAGEM IDOSO																								
 int passagemidoso(){
 	cabecalho();
 	printf("=========================================================");
@@ -499,7 +538,7 @@ int passagemidoso(){
     }
     
 	if (poltrona > 36){
-    	printf("\nAS POLTRONAS S√ÉO SOMENTE DE 1 A 36!!!\n");
+    	printf("\nAS POLTRONAS S√O SOMENTE DE 1 A 36!!!\n");
     }
     
 	//ESCOLHA DA DATA:
@@ -508,19 +547,19 @@ int passagemidoso(){
     //ESCOLHA DA HORA:
     escolhadahora();               
     
-    //ESCREVER A ESCOLHA DO NUMERO DO √îNIBUS
+    //ESCREVER A ESCOLHA DO NUMERO DO ‘NIBUS
     escolhanumonibus();
 
     //ESCREVER A ESCOLHA DO DESTINO
     linhadestino_escrita();
 
     //ESCREVER A POLTRONA
-    printf("\nN√öMERO DA POLTRONA:\t%2.2d\n",poltrona);
+    printf("N⁄MERO DA POLTRONA:\t%2.2d\n",poltrona);
 
     //ESCREVER A DATA
 	printf("DATA:\t\t\t%2.2d/%2.2d/%d\n", dd, mm, aaaa);
 
-    //ESCREVER O HOR√ÅRIO
+    //ESCREVER O HOR¡RIO
 	escreverhorario();
 
 	printf("=========================================================\n\n");
@@ -528,12 +567,12 @@ int passagemidoso(){
 	system("cls");
 }
 
-//FUN√á√ÉO MAIN()																
+//FUN«√O MAIN()																
 int main(void){
 	setlocale(LC_ALL, "Portuguese");
-	system ("title SISTEMA DE VENDA DE PASSAGEM RODOVI√ÅRIA");
+	system ("title SISTEMA DE VENDA DE PASSAGEM RODOVI¡RIA");
 
-	//Decla√ß√£o das fun√ß√µes
+	//DeclaÁ„o das funÁıes
 	int menuRenda();
 	void codigoA();
 	void codigoB();
@@ -554,7 +593,7 @@ int main(void){
 	int menuPrincipal();
 
 
-//valores das vari√°veis
+//valores das vari·veis
     linha1 = 100, linha2 = 200, linha3 = 300;
     soma = 0;
     qa = 0;
@@ -575,19 +614,3 @@ int main(void){
 	
 }
 
-
-/*           if (passagem_vendidaS == 0){		   
-		    for (linhaC=0;linhaC<9;linhaC++){
-                for (colunaC=0;colunaC<4;colunaC++){
-                	if (c[linhaC][colunaC]==poltrona){
-                            c[linhaC][colunaC]=vendido;
-                            passagem_vendidaS = 1;
-                            }
-                        }
-                    }
-					}else {
-			printf("POLTRONA OCUPADA JA OCUPADA NA LINHA SANTOS!");
-        	printf(" \n ESCOLHA OUTRA LINHA OU UMA POLTRONA DIFERENTE\n");
-        	main();	
-					}
-            break;*/
